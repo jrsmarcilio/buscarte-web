@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as Styled from "./styles";
-import CustomScrollbars from "../../../Scrollbar/Scrollbar";
+import CustomScrollbars from "../../../Scrollbar";
 
 const ListAtelie = ({ atelies }) => {
   const [listAtelies, setListAtelies] = useState([]);

@@ -5,7 +5,9 @@ const renderThumb = ({ style, ...props }) => {
     borderRadius: 6,
     backgroundColor: "rgba(0, 0, 0, 0.3)",
   };
-  return <div style={{ ...style, ...thumbStyle }} {...props} />;
+  return (
+    <div style={{ ...style, ...thumbStyle, overflow: "auto" }} {...props} />
+  );
 };
 
 const CustomScrollbars = (props) => (
