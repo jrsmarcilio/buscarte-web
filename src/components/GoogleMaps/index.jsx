@@ -16,7 +16,7 @@ const GoogleMaps = () => {
     async function fetchAtelie() {
       const response = await api.get("/atelie");
       if (response.data === null) return console.error(new Error());
-      setAtelies(await response.data);
+      setAtelies(response.data);
     }
     fetchAtelie();
   }, []);

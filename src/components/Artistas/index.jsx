@@ -1,30 +1,81 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { ButtonGroup, Button, Table } from "react-bootstrap";
+import { FiInstagram } from "react-icons/fi";
+import { BiUserCircle } from "react-icons/bi";
+
+import Scrollbars from "../Scrollbar";
+
 import * as Styled from "./styles";
-import CustomScrollbars from "../Scrollbar/Scrollbar";
 
 const ListAtelie = ({ artistas }) => {
-  const [isFetching, setIsFetching] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function handleScroll() {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight ||
-      isFetching
-    )
-      return;
-    setIsFetching(true);
-  }
-
   return (
-    <Styled.AtelieContainer>
+    <Styled.Container>
+      <Styled.ArtistaContent>
+        <Scrollbars>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Nome </th>
+                <th>Categoria</th>
+                <th>Instagram</th>
+                <th>Perfil</th>
+              </tr>
+            </thead>
+            {artistas.map((artista) => (
+              <tbody key={artista.id_artista}>
+                <tr>
+                  <td>{artista.nome_artistico}</td>
+
+                  {artista.Artista_categorium ? (
+                    <>
+                      {artista.Artista_categorium.Categorium ? (
+                        <td>{artista.Artista_categorium.Categorium.titulo}</td>
+                      ) : (
+                        <td> Categoria não Identificada </td>
+                      )}
+                    </>
+                  ) : (
+                    <td> Categoria não identificada </td>
+                  )}
+                  <td>
+                    <FiInstagram /> {artista.instagram}
+                  </td>
+                  <td>
+                    <BiUserCircle />{" "}
+                    <a href={`https://instagram.com/${artista.instagram}`}>
+                      Acessar Perfil
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+          </Table>
+        </Scrollbars>
+      </Styled.ArtistaContent>
+
+      <Styled.FilterContent>
+        <ButtonGroup aria-label="Basic example">
+          <Button variant="secondary">Grafiteiro</Button>
+          <Button variant="secondary">Artístico</Button>
+          <Button variant="secondary">Escultor</Button>
+        </ButtonGroup>
+
+        <ButtonGroup aria-label="Basic example">
+          <Button variant="secondary">Muralista</Button>
+          <Button variant="secondary">Cerâmica</Button>
+          <Button variant="secondary">Plástico</Button>
+        </ButtonGroup>
+      </Styled.FilterContent>
+    </Styled.Container>
+  );
+};
+
+export default ListAtelie;
+
+/*
+  <Styled.AtelieContainer>
       <Styled.AtelieGroup>
-        <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
+        <Scrollbars>
           {artistas.map((artista) => (
             <Styled.AtelieItem key={artista.id_artista}>
               <Styled.Details>
@@ -32,13 +83,6 @@ const ListAtelie = ({ artistas }) => {
                   <li>
                     <h2>{artista.nome_artistico}</h2>
                   </li>
-                  {artista.Artista_categorium.Categorium && (
-                    <li>
-                      <span>
-                        {artista.Artista_categorium.Categorium.titulo}
-                      </span>
-                    </li>
-                  )}
                   <li>
                     <a href={`https://instagram.com/${artista.instagram}`}>
                       Acessar perfil do Instagram
@@ -46,16 +90,9 @@ const ListAtelie = ({ artistas }) => {
                   </li>
                 </ul>
               </Styled.Details>
-              {/* <span className="loco">
-                <MdGpsFixed />
-              </span> */}
             </Styled.AtelieItem>
           ))}
-          {isFetching && "Buscando por mais artistas..."}
-        </CustomScrollbars>
+        </Scrollbars>
       </Styled.AtelieGroup>
     </Styled.AtelieContainer>
-  );
-};
-
-export default ListAtelie;
+*/

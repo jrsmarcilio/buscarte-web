@@ -6,7 +6,7 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: center;
   
-  height: 76px;
+  height: 65px;
   width: 100%;
   margin: auto;
   
@@ -144,10 +144,6 @@ export const HeaderContent = styled.div`
         ::placeholder {
           font-size: 7px;
         }
-
-        /* input {
-          background-color: #000;
-        } */
       }
     }
   }

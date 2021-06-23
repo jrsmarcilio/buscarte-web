@@ -1,21 +1,18 @@
-import React from "react";
+import React, { memo } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Home from "./pages/Home";
-import Header from "./components/Header";
-import Carousel from "./components/Carousel";
-
+import Artistas from "./pages/Artists";
 import Global from "./styles/Global";
 
 const App = () => {
   return (
     <div className="App">
       <Global />
-      <Header />
-      <Carousel />
       <Home />
+      <Artistas />
     </div>
   );
 };
 
-export default App;
+export default memo(App);

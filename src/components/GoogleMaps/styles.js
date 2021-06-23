@@ -15,7 +15,6 @@ export const MapsContent = styled.div`
 `;
 
 export const AtelieContent = styled.div`
-  height: 450px;
   background: #fff;
   grid-column: 6/8;
 
@@ -36,6 +35,10 @@ export const AtelieItem = styled.li`
     border-radius: 2px;
     margin: 10px -10px;
     flex-direction: column;
+
+    :hover {
+      cursor: pointer;
+    }
 
     header {
       display: flex;
@@ -88,9 +91,5 @@ export const AtelieItem = styled.li`
     font-size: 13px;
     color: #999;
     margin-top: 2px;
-  }
-
-  :hover {
-    cursor: pointer;
   }
 `;
