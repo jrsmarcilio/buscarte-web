@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
+
 import ArrowsComponent from "./containers/Arrows";
 import DotsComponent from "./containers/Dots";
+
 import SlideImages from "./containers/SlideImages";
 import SlideContentComponent from "./containers/SliderContent";
 

@@ -11,6 +11,7 @@ export const SlidesContent = styled.section`
   margin: auto;
   /* padding: 20px; */
 
+
   img {
     border-radius: 5px;
     width: 100%;
@@ -21,7 +22,7 @@ export const SlidesContent = styled.section`
 
   .slides {
     /* max-width: 1360px; */
-    height: 30vh;
+    height: 25vh;
     width: 100%;
     position: relative;
     border-radius: 50px;
@@ -58,7 +59,7 @@ export const AllDots = styled.div`
   width: 100%;
   position: absolute;
   display: flex;
-  bottom: 20%;
+  bottom: 35%;
   justify-content: center;
   z-index: 200;
 
@@ -97,18 +98,20 @@ export const ArrowContainer = styled.div`
   .prev:hover,
   .next:hover {
     color: white;
-    background-color: rgba(0, 0, 0, 0.6);
     transition: all 0.5s ease-in;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   .prev {
     left: 2%;
     border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   .next {
     right: 2%;
     border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -117,8 +120,8 @@ export const ArrowContainer = styled.div`
  */
 
 export const CarouselContainer = styled.div`
-  height: 35vh;
   width: 100%;
+  height: 25vh;
   position: relative;
   margin: auto;
   overflow: hidden;

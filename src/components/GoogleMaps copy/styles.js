@@ -5,6 +5,7 @@ export const Container = styled.div`
 
   h3 {
     position: relative;
+
     font-family: Poly;
     font-size: 36px;
     line-height: 43px;
@@ -22,17 +23,15 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 70%;
+  margin-top: 38px;
 
-  display: flex;
-  justify-content: space-between;
-  margin: 38px auto;
+  display: grid;
+  grid-template-columns: 1fr repeat(6, minmax(auto, 13em)) 1fr;
+  grid-template-rows: minmax(1em, auto) 1fr auto minmax(1em, auto);
 `;
 
 export const MapsContent = styled.div`
-  width: 740px;
-  height: 450px;
-
+  grid-column: 2/6;
   background: #fff;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
@@ -40,10 +39,9 @@ export const MapsContent = styled.div`
 `;
 
 export const AtelieContent = styled.div`
-  width: 550px;
-  height: 450px;
-
   background: #fff;
+  grid-column: 6/8;
+
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;

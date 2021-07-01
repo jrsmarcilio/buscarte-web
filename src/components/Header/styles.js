@@ -5,13 +5,14 @@ import loupe from "../../assets/loupe.svg";
 export const HeaderContent = styled.div`
   display: flex;
   justify-content: center;
-  
-  height: 65px;
+
+  height: 60px;
   width: 100%;
   margin: auto;
-  
+
   background-color: #fafafa;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
   nav {
     width: 67%;
@@ -20,32 +21,32 @@ export const HeaderContent = styled.div`
   }
 
   img {
-      width: 150px;
+    width: 150px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
+
+  form {
+    button {
+      width: 70px;
+      height: 30px;
       display: flex;
       margin: auto;
       justify-content: center;
+      font-size: 12px;
+      color: transparent;
+      background: url(${loupe}) no-repeat content-box padding-box center;
     }
 
-    form {
-      button {
-        width: 70px;
-        height: 30px;
-        display: flex;
-        margin: auto;
-        justify-content: center;
+    input {
+      width: 150px;
+      height: 30px;
+      ::placeholder {
         font-size: 12px;
-        color: transparent;
-        background: url(${loupe}) no-repeat content-box padding-box center;
-      }
-
-      input {
-        width: 150px;
-        height: 30px;
-        ::placeholder {
-          font-size: 12px;
-        }
       }
     }
+  }
 
   @media (max-width: 800px) {
     display: flex;
@@ -114,35 +115,36 @@ export const HeaderContent = styled.div`
     }
 
     @media (max-width: 375px) {
-    display: flex;
-    margin: auto;
-    justify-content: center;
-
-    img {
-      width: 80px;
       display: flex;
       margin: auto;
       justify-content: center;
-    }
 
-    form {
-      button {
-        width: 30px;
-        height: 20px;
+      img {
+        width: 80px;
         display: flex;
         margin: auto;
         justify-content: center;
-        font-size: 6px;
-        color: transparent;
-        background: url(${loupe}) no-repeat content-box padding-box center;
       }
 
-      input {
-        width: 70px;
-        height: 20px;
-        
-        ::placeholder {
-          font-size: 7px;
+      form {
+        button {
+          width: 30px;
+          height: 20px;
+          display: flex;
+          margin: auto;
+          justify-content: center;
+          font-size: 6px;
+          color: transparent;
+          background: url(${loupe}) no-repeat content-box padding-box center;
+        }
+
+        input {
+          width: 70px;
+          height: 20px;
+
+          ::placeholder {
+            font-size: 7px;
+          }
         }
       }
     }

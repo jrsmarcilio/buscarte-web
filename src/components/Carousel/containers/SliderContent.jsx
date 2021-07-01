@@ -4,7 +4,6 @@ import React from "react";
 
 import slideImages from "./SlideImages";
 import * as Styled from "../styled";
-import { Carousel } from "react-bootstrap";
 
 const SliderContent = (props) => {
   return (
@@ -15,8 +14,6 @@ const SliderContent = (props) => {
           className={index === props.activeIndex ? "slides active" : "inactive"}
         >
           <img src={slide.urls} alt="" />
-          {/* <h3>{slide.title}</h3>
-          <p>{slide.description}</p> */}
         </div>
       ))}
     </Styled.SlidesContent>

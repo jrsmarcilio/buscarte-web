@@ -1,5 +1,4 @@
 import React, { memo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import MapsContentComponent from "./Containers/MapsContainer";
 import Scrollbar from "../Scrollbar";
@@ -35,10 +34,8 @@ const GoogleMaps = () => {
   };
 
   return (
-    <Styled.Container>
-      <h3>
-        <span>Ateliês nas proximidades</span>
-      </h3>
+      <Styled.Container>
+        <h3><span>Ateliês nas proximidades</span></h3>
       <Styled.Content>
         <Styled.MapsContent>
           <MapsContentComponent latitude={latitude} longitude={longitude} />
@@ -69,14 +66,9 @@ const GoogleMaps = () => {
                           <span>{`${item.rua}, ${item.numero}, ${item.bairro}`}</span>
                         </div>
                         <div>
-                          <Link
-                            to={{
-                              pathname: `/atelies/${item.nome}`,
-                              atelie: item,
-                            }}
-                          >
+                          <a href={`http://github.com/${item.github_username}`}>
                             Acessar Perfil
-                          </Link>
+                          </a>
                         </div>
                       </div>
                     </header>
@@ -88,7 +80,7 @@ const GoogleMaps = () => {
           </Scrollbar>
         </Styled.AtelieContent>
       </Styled.Content>
-    </Styled.Container>
+      </Styled.Container>
   );
 };
 

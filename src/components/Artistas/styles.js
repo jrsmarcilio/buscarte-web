@@ -3,42 +3,78 @@ import styled from "styled-components";
 // import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr repeat(6, minmax(auto, 13em)) 1fr;
-  grid-template-rows: minmax(20em, auto) 1fr auto minmax(20em, auto);
+  margin-top: 45px;
 
-  background: #fafafa;
-  margin-top: 60px;
+  h3 {
+    /* position: relative; */
+    font-family: Poly;
+    font-size: 36px;
+    line-height: 43px;
 
-  flex-wrap: nowrap;
-`;
+    text-align: center;
 
-export const ArtistaContent = styled.div`
-  background: blue;
-  height: 450px;
+    color: #333333;
 
-  grid-column: 2/6;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    span {
+      display: inline-block;
+      border-bottom: 1px solid red;
+      padding-bottom: 2px;
+    }
+  }
 `;
 
 export const FilterContent = styled.div`
-  background: #fff;
-  grid-column: 6/8;
-
-  button {
-    padding: 5px;
-  }
+  margin-top: 45px;
   
-  div {
-    margin-bottom: 10px;
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 40;
+
+`;
+
+export const ArtistaContent = styled.div`
+  display: flex;
+  margin: 35px auto;
+  justify-content: center;
+  align-items: center;
+  
+  height: 750px;
+
+`;
+
+export const RoundedCircle = styled.div`
+    padding: 10px;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+    border: 6px solid #eeeeee;
+  }
+`;
+
+export const FotoNull = styled.div`
+    margin-left: 15px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #919191;
+    border: 6px solid #eeeeee;
+`;
+
+export const ArtistaText = styled.div`
+  margin-top: 20px;
+  text-align: center;
+
+  span {
+    font-size: 16px;
+
+    color: red;
+
+    :hover {
+      font-size: 16.5px;
+      color: black;
+    }
   }
 
-
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 `;

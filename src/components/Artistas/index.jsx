@@ -1,7 +1,4 @@
 import React from "react";
-import { ButtonGroup, Button, Table } from "react-bootstrap";
-import { FiInstagram } from "react-icons/fi";
-import { BiUserCircle } from "react-icons/bi";
 
 import Scrollbars from "../Scrollbar";
 
@@ -9,64 +6,67 @@ import * as Styled from "./styles";
 
 const ListAtelie = ({ artistas }) => {
   return (
-    <Styled.Container>
-      <Styled.ArtistaContent>
-        <Scrollbars>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Nome </th>
-                <th>Categoria</th>
-                <th>Instagram</th>
-                <th>Perfil</th>
-              </tr>
-            </thead>
-            {artistas.map((artista) => (
-              <tbody key={artista.id_artista}>
-                <tr>
-                  <td>{artista.nome_artistico}</td>
-
-                  {artista.Artista_categorium ? (
-                    <>
-                      {artista.Artista_categorium.Categorium ? (
-                        <td>{artista.Artista_categorium.Categorium.titulo}</td>
-                      ) : (
-                        <td> Categoria não Identificada </td>
-                      )}
-                    </>
-                  ) : (
-                    <td> Categoria não identificada </td>
-                  )}
-                  <td>
-                    <FiInstagram /> {artista.instagram}
-                  </td>
-                  <td>
-                    <BiUserCircle />{" "}
-                    <a href={`https://instagram.com/${artista.instagram}`}>
-                      Acessar Perfil
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
-          </Table>
-        </Scrollbars>
-      </Styled.ArtistaContent>
-
-      <Styled.FilterContent>
-        <ButtonGroup aria-label="Basic example">
-          <Button variant="secondary">Grafiteiro</Button>
-          <Button variant="secondary">Artístico</Button>
-          <Button variant="secondary">Escultor</Button>
-        </ButtonGroup>
-
-        <ButtonGroup aria-label="Basic example">
-          <Button variant="secondary">Muralista</Button>
-          <Button variant="secondary">Cerâmica</Button>
-          <Button variant="secondary">Plástico</Button>
-        </ButtonGroup>
+    <div className="container">
+      <h3>
+        <span>Artistas</span>
+      </h3>
+      <Styled.FilterContent className="container">
+        <span
+          style={{
+            display: "inline-block",
+            borderBottom: "1px solid red",
+            paddingBottom: "2px",
+          }}
+        >
+          Todos
+        </span>
+        <span>Artistas</span>
+        <span>Pintores</span>
+        <span>Escultores</span>
+        <span>Grafiteiros</span>
+        <span>Ceramistas</span>
+        <span>Gravuristas</span>
+        <span>Poetas</span>
+        <span>Vídeos</span>
       </Styled.FilterContent>
-    </Styled.Container>
+
+      <Styled.ArtistaContent className="row">
+        {/* <Scrollbars> */}
+        {artistas.map((artista) => (
+          <div className="col-4 col-sm-3">
+            <Styled.RoundedCircle>
+              {artista.Artista_foto_atelie ? (
+                <>
+                  {artista.Artista_foto_atelie.Foto_atelie && (
+                    <>
+                      <img
+                        src={artista.Artista_foto_atelie.Foto_atelie.descricao}
+                        alt=""
+                      />
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <Styled.FotoNull />
+                </>
+              )}
+            </Styled.RoundedCircle>
+            <Styled.ArtistaText  style={{ width: 200}}>
+              <span
+                style={{
+                  borderBottom: "1px solid red",
+                  paddingBottom: "2px",
+                }}
+              >
+                {artista.nome}
+              </span>
+            </Styled.ArtistaText>
+          </div>
+        ))}
+        {/* </Scrollbars> */}
+      </Styled.ArtistaContent>
+    </div>
   );
 };
 
