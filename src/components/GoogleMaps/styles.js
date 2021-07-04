@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin-top: 45px;
-
   h3 {
     position: relative;
     font-family: Poly;

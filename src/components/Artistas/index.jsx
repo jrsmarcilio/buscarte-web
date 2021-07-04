@@ -1,25 +1,23 @@
 import React from "react";
-
-import Scrollbars from "../Scrollbar";
+import styled from "styled-components";
 
 import * as Styled from "./styles";
 
+const Scrollbars = Styled.div`
+  border-radius: 6;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
+
 const ListAtelie = ({ artistas }) => {
   return (
-    <div className="container">
+    <Styled.Container>
       <h3>
         <span>Artistas</span>
       </h3>
       <Styled.FilterContent className="container">
-        <span
-          style={{
-            display: "inline-block",
-            borderBottom: "1px solid red",
-            paddingBottom: "2px",
-          }}
-        >
-          Todos
-        </span>
+        <Styled.SpanActive>Todos</Styled.SpanActive>
         <span>Artistas</span>
         <span>Pintores</span>
         <span>Escultores</span>
@@ -30,11 +28,10 @@ const ListAtelie = ({ artistas }) => {
         <span>Vídeos</span>
       </Styled.FilterContent>
 
-      <Styled.ArtistaContent className="row">
-        {/* <Scrollbars> */}
-        {artistas.map((artista) => (
-          <div className="col-4 col-sm-3">
-            <Styled.RoundedCircle>
+      <Styled.ArtistaContent>
+        <Scrollbars>
+          {artistas.map((artista) => (
+            <Styled.ArtistItem>
               {artista.Artista_foto_atelie ? (
                 <>
                   {artista.Artista_foto_atelie.Foto_atelie && (
@@ -51,22 +48,14 @@ const ListAtelie = ({ artistas }) => {
                   <Styled.FotoNull />
                 </>
               )}
-            </Styled.RoundedCircle>
-            <Styled.ArtistaText  style={{ width: 200}}>
-              <span
-                style={{
-                  borderBottom: "1px solid red",
-                  paddingBottom: "2px",
-                }}
-              >
-                {artista.nome}
-              </span>
-            </Styled.ArtistaText>
-          </div>
-        ))}
-        {/* </Scrollbars> */}
+              <Styled.SpanActive>
+                {artista.nome.split(" ", 2).join(" ")}
+              </Styled.SpanActive>
+            </Styled.ArtistItem>
+          ))}
+        </Scrollbars>
       </Styled.ArtistaContent>
-    </div>
+    </Styled.Container>
   );
 };
 
