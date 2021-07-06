@@ -1,87 +1,75 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import * as Styles from "./styles";
 
-import * as Styled from "./styles";
-
-const Scrollbars = Styled.div`
-  border-radius: 6;
-  background-color: rgba(0, 0, 0, 0.3);
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
+import formatArtistName from "../../utils/formatArtistName";
 
 const ListAtelie = ({ artistas }) => {
+  const [artists, setArtists] = useState(artistas);
+  const [filter, setFilter] = useState("Todos");
+  // const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setArtists(artistas);
+    // setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    const artistasFiltro = artistas.filter(
+      (item) => item.Artista_categorium.Categorium.titulo === `${filter}`
+    );
+    filter === "Todos" ? setArtists(artistas) : setArtists(artistasFiltro);
+  }, [filter]);
+
   return (
-    <Styled.Container>
+    <Styles.Container>
       <h3>
         <span>Artistas</span>
       </h3>
-      <Styled.FilterContent className="container">
-        <Styled.SpanActive>Todos</Styled.SpanActive>
-        <span>Artistas</span>
-        <span>Pintores</span>
-        <span>Escultores</span>
-        <span>Grafiteiros</span>
-        <span>Ceramistas</span>
-        <span>Gravuristas</span>
-        <span>Poetas</span>
-        <span>Vídeos</span>
-      </Styled.FilterContent>
 
-      <Styled.ArtistaContent>
-        <Scrollbars>
-          {artistas.map((artista) => (
-            <Styled.ArtistItem>
-              {artista.Artista_foto_atelie ? (
-                <>
-                  {artista.Artista_foto_atelie.Foto_atelie && (
-                    <>
-                      <img
-                        src={artista.Artista_foto_atelie.Foto_atelie.descricao}
-                        alt=""
-                      />
-                    </>
-                  )}
-                </>
-              ) : (
-                <>
-                  <Styled.FotoNull />
-                </>
-              )}
-              <Styled.SpanActive>
-                {artista.nome.split(" ", 2).join(" ")}
-              </Styled.SpanActive>
-            </Styled.ArtistItem>
-          ))}
-        </Scrollbars>
-      </Styled.ArtistaContent>
-    </Styled.Container>
+      <Styles.FilterContent>
+        <button onClick={() => setFilter("Todos")}> Todos </button>
+        <button onClick={() => setFilter("Artista")}> Artistas </button>
+        <button onClick={() => setFilter("Pintor")}> Pintores </button>
+        <button onClick={() => setFilter("Escultor")}> Escultores </button>
+        <button onClick={() => setFilter("Grafiteiro")}> Grafiteiros </button>
+        <button onClick={() => setFilter("Ceramista")}> Ceramistas </button>
+        <button onClick={() => setFilter("Gravurista")}> Gravuristas </button>
+        <button onClick={() => setFilter("Muralista")}> Muralistas </button>
+        <button onClick={() => setFilter("Poeta")}> Poetas </button>
+      </Styles.FilterContent>
+
+      <Styles.ArtistaContent>
+        {artists.map((artista) => (
+          <Styles.ArtistItem>
+            {artista.foto ? (
+              <div className="img-holder">
+                <img
+                  src={artista.foto}
+                  alt={`Foto de perfil do artista ${artista.nome}`}
+                />
+              </div>
+            ) : (
+              <>
+                <Styles.FotoNull />
+              </>
+            )}
+            <aside>
+              <span>
+                {artista.Artista_categorium
+                  ? artista.Artista_categorium.Categorium
+                    ? artista.Artista_categorium.Categorium.titulo
+                    : "Artista"
+                  : "Artista"}
+              </span>
+              <Styles.AsideActive>
+                <strong>{formatArtistName(artista.nome)}</strong>
+              </Styles.AsideActive>
+            </aside>
+          </Styles.ArtistItem>
+        ))}
+      </Styles.ArtistaContent>
+    </Styles.Container>
   );
 };
 
 export default ListAtelie;
-
-/*
-  <Styled.AtelieContainer>
-      <Styled.AtelieGroup>
-        <Scrollbars>
-          {artistas.map((artista) => (
-            <Styled.AtelieItem key={artista.id_artista}>
-              <Styled.Details>
-                <ul>
-                  <li>
-                    <h2>{artista.nome_artistico}</h2>
-                  </li>
-                  <li>
-                    <a href={`https://instagram.com/${artista.instagram}`}>
-                      Acessar perfil do Instagram
-                    </a>
-                  </li>
-                </ul>
-              </Styled.Details>
-            </Styled.AtelieItem>
-          ))}
-        </Scrollbars>
-      </Styled.AtelieGroup>
-    </Styled.AtelieContainer>
-*/

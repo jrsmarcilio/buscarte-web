@@ -6,7 +6,7 @@ const renderThumb = ({ style, ...props }) => {
     backgroundColor: "rgba(0, 0, 0, 0.3)",
   };
   return (
-    <div style={{ ...style, ...thumbStyle,  msOverflowY: "auto", overflowX: 'hidden' }} {...props} />
+    <div style={{ ...style, ...thumbStyle,  msOverflowY: "auto", overflowX: 'auto' }} {...props} />
   );
 };
 

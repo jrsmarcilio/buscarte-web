@@ -1,8 +1,9 @@
 import React, { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { GoLocation } from "react-icons/go";
+
 import MapsContentComponent from "./Containers/MapsContainer";
-import Scrollbar from "../Scrollbar";
 
 import api from "../../services/api";
 import * as Styled from "./styles";
@@ -45,47 +46,41 @@ const GoogleMaps = () => {
         </Styled.MapsContent>
 
         <Styled.AtelieContent>
-          <Scrollbar>
-            <ul>
-              {atelies.map((item) => (
-                <Styled.AtelieItem
-                  onClick={(e) => handleCoords(item.latitude, item.longitude)}
-                >
-                  <li key={item.id_atelie} className="atelie-item">
-                    <header>
-                      {item.Artista_foto_atelie ? (
-                        <img
-                          src={item.Artista_foto_atelie.Foto_atelie.descricao}
-                          alt={`Foto do perfil do Ateliê ${item.name}`}
-                        />
-                      ) : (
-                        <div className="null-photo" />
-                      )}
-                      <div className="atelie-info">
-                        <div>
-                          <strong>{item.nome}</strong>
-                        </div>
-                        <div>
-                          <span>{`${item.rua}, ${item.numero}, ${item.bairro}`}</span>
-                        </div>
-                        <div>
-                          <Link
-                            to={{
-                              pathname: `/atelies/${item.nome}`,
-                              atelie: item,
-                            }}
-                          >
-                            Acessar Perfil
-                          </Link>
-                        </div>
-                      </div>
-                    </header>
-                  </li>
-                  <hr />
-                </Styled.AtelieItem>
-              ))}
-            </ul>
-          </Scrollbar>
+          {atelies.map((item) => (
+            <Styled.AtelieItem
+              onClick={(e) => handleCoords(item.latitude, item.longitude)}
+              key={item.id_atelie}
+            >
+              <aside style={{ display: "flex", alignItems: "center" }}>
+                {/* <GoLocation style={{ padding: 30, fontSize: 18 }} /> */}
+
+                <div className="img-holder">
+                  {item.Artista_foto_atelie ? (
+                    <img
+                      src={item.Artista_foto_atelie.Foto_atelie.descricao}
+                      alt={`Foto de perfil do Ateliê ${item.name}`}
+                    />
+                  ) : (
+                    <Styled.FotoNull />
+                  )}
+                </div>
+
+                <div className="text-holder">
+                  <strong>{item.nome}</strong>
+                  <span>{`${item.rua}, ${item.numero}, ${item.bairro}`}</span>
+                </div>
+              </aside>
+
+              <Link
+                to={{
+                  pathname: `/atelies/${item.nome}`,
+                  atelie: item,
+                }}
+              >
+                Acessar Perfil
+              </Link>
+            </Styled.AtelieItem>
+          ))}
         </Styled.AtelieContent>
       </Styled.Content>
     </Styled.Container>

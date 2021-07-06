@@ -7,8 +7,10 @@ import Atelie from "./pages/HomeAtelie";
 const Routes = () => {
   return (
     <BrowserRouter>
-      <Route exact path="/" component={Home} />
-      <Route path="/atelies/:nome" component={Atelie} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/atelies/:nome" component={Atelie} />
+      </Switch>
     </BrowserRouter>
   );
 };

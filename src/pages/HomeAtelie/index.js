@@ -11,9 +11,26 @@ import {
 } from "./styles";
 import MapsContainer from "../../components/GoogleMaps/Containers/MapsContainer";
 
-const HomeAtelie = (props) => {
+// import api from "../../services/api";
+
+const HomeAtelie = ({ props }) => {
   const atelie = props.location.atelie;
-  console.log(atelie);
+
+  // useEffect(() => {
+  //   async function fetchAtelie() {
+  //     const response = await api.get(`/atelie${atelie.id_atelie}`);
+
+  //     if (!response) {
+  //       return setAtelie([]);
+  //     } else {
+  //       setAtelie(response.data);
+  //       setLoading(false);
+  //     }
+  //   }
+
+  //   fetchAtelie();
+  // }, []);
+
   return (
     <>
       <Header />
@@ -67,7 +84,7 @@ const HomeAtelie = (props) => {
                   </a>
                 </AtelieText>
               </div>
-              <div className="col-md-8 p-3" style={{ marginRight: 50}}>
+              <div className="col-md-8 p-3" style={{ marginRight: 50 }}>
                 <MapsContainer
                   latitude={atelie.latitude}
                   longitude={atelie.longitude}
