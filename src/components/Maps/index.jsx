@@ -6,7 +6,7 @@ import {
   Marker,
 } from "react-google-maps";
 
-const MapsContainer = ({ latitude, longitude, width, height }) => {
+const MapsContainer = ({ latitude, longitude }) => {
   const center = {
     lat: latitude,
     lng: longitude,
@@ -15,7 +15,7 @@ const MapsContainer = ({ latitude, longitude, width, height }) => {
   const MapWithAMarker = withScriptjs(
     withGoogleMap((props) => (
       <GoogleMap
-        defaultZoom={15}
+        defaultZoom={18}
         defaultCenter={{ lat: latitude, lng: longitude }}
       >
         <Marker position={center} />
@@ -23,26 +23,18 @@ const MapsContainer = ({ latitude, longitude, width, height }) => {
     ))
   );
   return (
-    <MapWithAMarker
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3bP0tG9rhAjx36eKw05uoo2qZ9LeGB9s&v=3.exp&libraries=geometry,drawing,places"
-      loadingElement={
-        <div
-          style={{
-            height: `${height}`,
-            width: `${width}`,
-            transition: "all 1s ease-in",
-          }}
-        />
-      }
-      containerElement={
-        <div style={{ height: `${height}`, width: `${width}` }} />
-      }
-      mapElement={
-        <div
-          style={{ height: `${height}`, width: `${width}`, borderRadius: 8 }}
-        />
-      }
-    />
+      <MapWithAMarker
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3bP0tG9rhAjx36eKw05uoo2qZ9LeGB9s&v=3.exp&libraries=geometry,drawing,places"
+        loadingElement={
+          <div
+            style={{ height: '100%', width: '100%', transition: "all 1s ease-in" }}
+          />
+        }
+        containerElement={<div style={{ height: '100%', width: '100%' }} />}
+        mapElement={
+          <div style={{ height: '100%', width: '100%', borderRadius: 8 }} />
+        }
+      />
   );
 };
 

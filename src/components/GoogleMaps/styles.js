@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import GoLocation from "./Containers/GoLocation";
+
 export const Container = styled.div`
   margin-top: 45px;
 
@@ -88,6 +90,10 @@ export const AtelieItem = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 
+  .btn-atelie {
+    z-index: +5;
+  }
+
   .text-holder {
     width: 270px;
     padding: 20px;
@@ -136,11 +142,17 @@ export const AtelieItem = styled.div`
 
     font-size: 14px;
     font-weight: bold;
+
+    :hover {
+      cursor: pointer;
+      background: #225986;
+    }
   }
-  
+
   :hover {
     background: #e1edff;
-    cursor: pointer;
+    cursor: url('data:image/svg+xml;utf8,<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>'),
+      auto;
     border: 1px solid #0052cc;
   }
 `;

@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <HeaderContent>
       <Navbar bg="light" expand="lg" className="d-flex">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={Logo}
             height="30"

@@ -1,8 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { GoLocation } from "react-icons/go";
-
 import MapsContentComponent from "./Containers/MapsContainer";
 
 import api from "../../services/api";
@@ -72,9 +70,10 @@ const GoogleMaps = () => {
               </aside>
 
               <Link
+                className="btn-atelie"
                 to={{
-                  pathname: `/atelies/${item.nome}`,
-                  atelie: item,
+                  pathname: `/atelie/${item.id_atelie}`,
+                  // id: item.id_atelie,
                 }}
               >
                 Acessar Perfil

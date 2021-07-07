@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import * as Styles from "./styles";
 
 import formatArtistName from "../../utils/formatArtistName";
+import { memo } from "react";
+import { Link } from "react-router-dom";
 
 const ListAtelie = ({ artistas }) => {
-  const [artists, setArtists] = useState(artistas);
+  const [artists, setArtists] = useState([]);
   const [filter, setFilter] = useState("Todos");
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setArtists(artistas);
     // setLoading(false);
-  }, []);
+  }, [artistas]);
 
   useEffect(() => {
     const artistasFiltro = artistas.filter(
@@ -40,36 +42,42 @@ const ListAtelie = ({ artistas }) => {
 
       <Styles.ArtistaContent>
         {artists.map((artista) => (
-          <Styles.ArtistItem>
-            {artista.foto ? (
-              <div className="img-holder">
-                <img
-                  src={artista.foto}
-                  alt={`Foto de perfil do artista ${artista.nome}`}
-                />
-              </div>
-            ) : (
-              <>
-                <Styles.FotoNull />
-              </>
-            )}
-            <aside>
-              <span>
-                {artista.Artista_categorium
-                  ? artista.Artista_categorium.Categorium
-                    ? artista.Artista_categorium.Categorium.titulo
-                    : "Artista"
-                  : "Artista"}
-              </span>
-              <Styles.AsideActive>
-                <strong>{formatArtistName(artista.nome)}</strong>
-              </Styles.AsideActive>
-            </aside>
-          </Styles.ArtistItem>
+          <Link
+            to={{
+              pathname: `/artistas/${artista.id_artista}`,
+            }}
+          >
+            <Styles.ArtistItem>
+              {artista.foto ? (
+                <div className="img-holder">
+                  <img
+                    src={artista.foto}
+                    alt={`Foto de perfil do artista ${artista.nome}`}
+                  />
+                </div>
+              ) : (
+                <>
+                  <Styles.FotoNull />
+                </>
+              )}
+              <aside>
+                <span>
+                  {artista.Artista_categorium
+                    ? artista.Artista_categorium.Categorium
+                      ? artista.Artista_categorium.Categorium.titulo
+                      : "Artista"
+                    : "Artista"}
+                </span>
+                <Styles.AsideActive>
+                  <strong>{formatArtistName(artista.nome)}</strong>
+                </Styles.AsideActive>
+              </aside>
+            </Styles.ArtistItem>
+          </Link>
         ))}
       </Styles.ArtistaContent>
     </Styles.Container>
   );
 };
 
-export default ListAtelie;
+export default memo(ListAtelie);
