@@ -178,3 +178,173 @@ export const ArtistaContent = styled.div`
     padding: 30px;
   }
 `;
+
+/**
+ * Novo Layout
+ */
+
+export const ArtistaContainer = styled.div`
+  width: 67vw;
+  height: 70vh;
+
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: row; */
+
+  font-family: Poly;
+  font-style: normal;
+  font-weight: normal;
+
+  aside {
+    width: 38.7vh;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .perfil-content {
+      width: 100%;
+      height: 39vh;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .img-holder {
+      margin-top: 25px;
+      width: 200px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 100%;
+      border: 4px solid #225986;
+
+      img {
+        position: absolute;
+        width: 250px;
+        height: auto;
+      }
+    }
+
+    .nome-holder {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      text-align: center;
+
+      span {
+        font-size: 21px;
+        color: #225986;
+      }
+
+      strong {
+        margin-top: 5px;
+        font-size: 26px;
+        color: #225986;
+      }
+    }
+
+    .divider-hr {
+      width: 200px;
+      height: 2px;
+
+      background: #bdbdbd;
+    }
+
+    .perfil-links {
+      width: 100%;
+      height: 31vh;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: start;
+      flex-direction: column;
+
+      padding: 20px 50px;
+
+      a {
+        text-decoration: none;
+        font-size: 21px;
+        color: #225986;
+        padding: 8px 20px;
+        margin-top: 5px;
+
+        :hover {
+          background: #e1edff;
+          cursor: pointer;
+          border: 1px solid #0052cc;
+          border-radius: 4px;
+        }
+      }
+
+      svg {
+        margin-right: 10px;
+        color: #225986;
+        font-size: 26px;
+      }
+    }
+  }
+
+  article {
+    width: 920px;
+    height: 100%;
+
+    .sobre-content {
+      width: 100%;
+      height: 37vh;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      padding: 50px;
+
+      h3 {
+        font-size: 36px;
+        color: #0a223d;
+      }
+      span {
+        color: #0a223d;
+        font-size: 24px;
+        padding: -50px;
+      }
+    }
+
+    .infor-content {
+      /* width: 100%; */
+      height: 33vh;
+
+      padding-left: 50px;
+
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .titulo-items {
+        justify-content: flex-start;
+
+        span {
+          margin-bottom: 20px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+
+      .infor-items {
+        justify-content: flex-start;
+        span {
+          margin-bottom: 20px;
+          font-size: 18px;
+        }
+      }
+
+      .info-end {
+        width: 300px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+`;

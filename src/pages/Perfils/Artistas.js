@@ -25,15 +25,15 @@ const PerfilArtista = (props) => {
       <Header />
 
       <Container>
-        <Titulo title="Artista" />
+        <Titulo title="artista" />
 
         <ContentChildren>
           <Artista artista={artista} />
         </ContentChildren>
 
-        <ContentChildren>
-          <Titulo title="Obras do Artista" />
-        </ContentChildren>
+
+          <Titulo title="Obras do Artista" style={{ marginTop: 50 }} />
+
       </Container>
     </>
   );
