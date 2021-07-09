@@ -15,7 +15,6 @@ export const Container = styled.div`
 export const Apresentacao = styled.div`
   width: 30%;
   height: 85%;
-
   margin: 20px;
 
   background: #fff;
@@ -23,7 +22,7 @@ export const Apresentacao = styled.div`
 
   display: flex;
   flex-flow: row wrap;
-  
+
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 `;
@@ -88,14 +87,16 @@ export const AtelieItem = styled.div`
 `;
 
 export const ArtistaItem = styled.div`
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
   align-items: center;
-
-  margin: 0 auto;
+  justify-content: space-around;
 
   .img-holder {
+    margin: 0 auto;
     width: 150px;
     height: 150px;
     position: relative;
@@ -124,6 +125,12 @@ export const ArtistaItem = styled.div`
     display: flex;
     flex-flow: column wrap;
   }
+
+  .aside-ArtItem {
+    span {
+      margin-top: 15px;
+    }
+  }
 `;
 
 export const FotoNull = styled.div`
@@ -142,4 +149,32 @@ export const AsideActive = styled.aside`
   font-size: 18px;
 
   font-family: Poly;
+`;
+
+export const ArtistaContent = styled.div`
+  width: 60%;
+  height: 85%;
+
+  margin: 20px;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background: #fff;
+  border-radius: 4px;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+  aside {
+    width: 90%;
+    padding: 30px;
+    margin: 0 auto;
+  }
+  span {
+    font-size: 21px;
+    padding: 30px;
+  }
 `;

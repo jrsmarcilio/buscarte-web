@@ -13,6 +13,9 @@ const SliderContent = (props) => {
           key={index}
           className={index === props.activeIndex ? "slides active" : "inactive"}
         >
+          <span className="sombreamento">
+            {/* <h2>{slide.title}</h2> */}
+          </span>
           <img src={slide.urls} alt="" />
         </div>
       ))}

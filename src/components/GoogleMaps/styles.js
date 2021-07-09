@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import GoLocation from "./Containers/GoLocation";
 
 export const Container = styled.div`
   margin-top: 45px;

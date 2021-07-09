@@ -1,31 +1,41 @@
 import styled from "styled-components";
 
-/**
- * Styles Slider Content
- */
-
 export const SlidesContent = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  /* padding: 20px; */
-
+  position: relative;
+  width: 100%;
+  height: 25vh;
 
   img {
     border-radius: 5px;
     width: 100%;
-    height: 100%;
+    height: auto;
+
     position: absolute;
     object-fit: cover;
+    image-rendering: auto;
+
+    align-items: center;
+    
+  }
+
+  .sombreamento {
+    width: 100vw;
+    height: 25vh;
+
+    position: absolute;
+    z-index: 1;
+    background: rgba(10, 34, 61, 0.5);
   }
 
   .slides {
     /* max-width: 1360px; */
-    height: 25vh;
     width: 100%;
+    height: 100%;
     position: relative;
-    border-radius: 50px;
+    /* border-radius: 50px; */
   }
 
   .active {
@@ -35,33 +45,16 @@ export const SlidesContent = styled.section`
   .inactive {
     display: none;
   }
-
-  h3,
-  p {
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-    top: 50%;
-    z-index: 9;
-  }
-
-  p {
-    top: 70%;
-  }
 `;
-
-/**
- * Styles Dots
- */
 
 export const AllDots = styled.div`
   width: 100%;
   position: absolute;
   display: flex;
-  bottom: 35%;
+
   justify-content: center;
-  z-index: 200;
+  align-items: flex-end;
+  bottom: 20px;
 
   .dot {
     cursor: pointer;
@@ -71,27 +64,32 @@ export const AllDots = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     display: inline-block;
+    z-index: +1;
   }
 
   .active-dot,
   .dot:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #fff;
   }
 `;
 
-/**
- * Styles Arrows
- */
-
 export const ArrowContainer = styled.div`
+  span {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .prev,
   .next {
     cursor: pointer;
     position: absolute;
-    top: 30%;
-    width: auto;
     padding: 1rem;
+    top: 38%;
     margin-top: --3rem;
+    z-index: +1;
     color: #fff;
   }
 
@@ -100,6 +98,7 @@ export const ArrowContainer = styled.div`
     color: white;
     transition: all 0.5s ease-in;
     background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
   }
 
   .prev {
@@ -115,14 +114,13 @@ export const ArrowContainer = styled.div`
   }
 `;
 
-/**
- * Styles Carousel Container - Slider()
- */
-
 export const CarouselContainer = styled.div`
   width: 100%;
   height: 25vh;
   position: relative;
-  margin: auto;
   overflow: hidden;
+
+  justify-content: flex-start;
+  align-items: center;
+
 `;

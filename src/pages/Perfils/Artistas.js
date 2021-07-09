@@ -31,7 +31,9 @@ const PerfilArtista = (props) => {
           <Artista artista={artista} />
         </ContentChildren>
 
-        <Titulo title="Obras do Artista" />
+        <ContentChildren>
+          <Titulo title="Obras do Artista" />
+        </ContentChildren>
       </Container>
     </>
   );
