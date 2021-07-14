@@ -23,18 +23,40 @@ const MapsContainer = ({ latitude, longitude }) => {
     ))
   );
   return (
-      <MapWithAMarker
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3bP0tG9rhAjx36eKw05uoo2qZ9LeGB9s&v=3.exp&libraries=geometry,drawing,places"
-        loadingElement={
-          <div
-            style={{ height: 450, width: 740, transition: "all 1s ease-in" }}
-          />
-        }
-        containerElement={<div style={{ height: 450, width: 740 }} />}
-        mapElement={
-          <div style={{ height: 450, width: 740, borderRadius: 8 }} />
-        }
-      />
+    <MapWithAMarker
+      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3bP0tG9rhAjx36eKw05uoo2qZ9LeGB9s&v=3.exp&libraries=geometry,drawing,places"
+      loadingElement={
+        <div
+          style={{
+            height: 450,
+            width: 740,
+            opacity: 1,
+            transition: "opacity 500ms ease-in",
+          }}
+        />
+      }
+      containerElement={
+        <div
+          style={{
+            height: 450,
+            width: 740,
+            opacity: 1,
+            transition: "opacity 500ms ease-in",
+          }}
+        />
+      }
+      mapElement={
+        <div
+          style={{
+            height: 450,
+            width: 740,
+            borderRadius: 8,
+            opacity: 1,
+            transition: "opacity 500ms ease-in",
+          }}
+        />
+      }
+    />
   );
 };
 

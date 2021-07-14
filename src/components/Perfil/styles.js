@@ -241,6 +241,7 @@ export const ArtistaContainer = styled.div`
       }
 
       strong {
+        width: 240px;
         margin-top: 5px;
         font-size: 26px;
         color: #225986;

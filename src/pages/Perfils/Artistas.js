@@ -13,6 +13,7 @@ const PerfilArtista = (props) => {
 
   useEffect(() => {
     async function fetchArtista() {
+      window.scroll(0, 0);
       const response = await api.get(props.location.pathname);
       response ? setArtista(response.data) : setArtista([]);
     }
@@ -25,15 +26,13 @@ const PerfilArtista = (props) => {
       <Header />
 
       <Container>
-        <Titulo title="artista" />
+        <Titulo title="Artista" />
 
         <ContentChildren>
           <Artista artista={artista} />
         </ContentChildren>
 
-
-          <Titulo title="Obras do Artista" style={{ marginTop: 50 }} />
-
+        <Titulo title="Obras do Artista" style={{ marginTop: 50 }} />
       </Container>
     </>
   );
