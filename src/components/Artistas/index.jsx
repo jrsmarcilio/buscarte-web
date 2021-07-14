@@ -5,7 +5,7 @@ import * as Styles from "./styles";
 import formatArtistName from "../../utils/formatArtistName";
 
 const ListArtistas = ({ artistas }) => {
-  const [artists, setArtists] = useState(artistas);
+  const [artists, setArtists] = useState([]);
   const [filter, setFilter] = useState("Todos");
 
   useEffect(() => {

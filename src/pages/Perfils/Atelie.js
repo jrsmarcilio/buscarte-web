@@ -13,6 +13,7 @@ const PerfilAtelie = (props) => {
 
   useEffect(() => {
     async function fetchAtelie() {
+      window.scroll(0, 0);
       const response = await api.get(props.location.pathname);
       response ? setAtelie(response.data) : setAtelie([]);
     }
