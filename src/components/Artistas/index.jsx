@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
-import * as Styles from "./styles";
-
-import formatArtistName from "../../utils/formatArtistName";
-import { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const ListAtelie = ({ artistas }) => {
-  const [artists, setArtists] = useState([]);
+import * as Styles from "./styles";
+import formatArtistName from "../../utils/formatArtistName";
+
+const ListArtistas = ({ artistas }) => {
+  const [artists, setArtists] = useState(artistas);
   const [filter, setFilter] = useState("Todos");
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setArtists(artistas);
-    // setLoading(false);
   }, [artistas]);
 
   useEffect(() => {
@@ -80,4 +77,4 @@ const ListAtelie = ({ artistas }) => {
   );
 };
 
-export default memo(ListAtelie);
+export default memo(ListArtistas);
