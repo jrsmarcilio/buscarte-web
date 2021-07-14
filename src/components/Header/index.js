@@ -1,63 +1,61 @@
 import React from "react";
-import { Button, Form, FormControl, Navbar } from "react-bootstrap";
+import styled from "styled-components";
 
+import loupe from "../../assets/loupe.svg";
 import Logo from "../../assets/Logo.svg";
 
-import { HeaderContent } from "./styles";
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+
+  height: 60px;
+  width: 100%;
+  margin: auto;
+
+  background-color: #fafafa;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  nav {
+    width: 67%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  img {
+    width: 150px;
+  }
+
+  form {
+    img {
+      width: 19px;
+    }
+
+    input {
+      width: 150px;
+      height: 30px;
+      ::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+`;
 
 const Header = () => {
   return (
-    <HeaderContent>
-      <Navbar bg="light" expand="lg" className="d-flex">
-        <Navbar.Brand href="/">
-          <img
-            src={Logo}
-            height="30"
-            className="d-inline-block align-top"
-            alt="Buscarte logo"
-          />{" "}
-        </Navbar.Brand>
+    <Container>
+      <nav>
+        <img src={Logo} alt="Buscarte logo" />
 
-        <Form className="d-flex">
-          <FormControl
-            type="text"
-            placeholder="Pesquisa Buscarte"
-            className="mr-2"
-          />{" "}
-          <Button variant="outline-dark">
-            Pesquisar
-          </Button>
-        </Form>
-      </Navbar>
-    </HeaderContent>
+        <form>
+          <img src={loupe} alt="" />
+          <input type="text" placeholder="Pesquisa Buscarte" />
+          <button type="submit">Pesquisar</button>
+        </form>
+      </nav>
+    </Container>
   );
 };
 
 export default Header;
-
-/*
-
-     <Navbar bg="light" expand="lg">
-       <Container>
-         <Navbar.Brand href="#home">
-           <img
-             src={Logo}
-             height="30"
-             className="d-inline-block align-top"
-             alt="Buscarte logo"
-           />{" "}
-         </Navbar.Brand>
-
-         <Form className="d-flex">
-           <FormControl
-             type="text"
-             placeholder="Pesquisa Buscarte"
-             className="mr-2"
-           />{" "}
-           <Button style={{ marginLeft: "10px" }} variant="outline-success">
-             Pesquisar
-           </Button>
-         </Form>
-       </Container>
-     </Navbar>
-*/
